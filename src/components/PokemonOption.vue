@@ -1,7 +1,13 @@
 <template>
   <div class="options-container">
     <ul>
-      <li v-for="pokemon in optiones" :key="pokemon.id">{{ pokemon.name }}</li>
+      <li
+        v-for="pokemon in optiones"
+        :key="pokemon.id"
+        @click="$emit('selectionOption', pokemon.id)"
+      >
+        {{ pokemon.name }}
+      </li>
     </ul>
   </div>
 </template>
@@ -20,6 +26,7 @@ export default {
 /* Pokemon Options */
 ul {
   list-style-type: none;
+  padding: 0px;
 }
 li {
   background-color: white;
@@ -27,7 +34,7 @@ li {
   border: 1px solid rgba(0, 0, 0, 0.2);
   cursor: pointer;
   margin-bottom: 10px;
-  width: 250px;
+  width: 8rem;
 }
 
 li:hover {
